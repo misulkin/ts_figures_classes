@@ -7,15 +7,12 @@ export interface Figure {
 export class Triangle implements Figure {
   shape = 'triangle';
 
-  color: string;
-
-  private a: number;
-
-  private b: number;
-
-  private c: number;
-
-  constructor(color: string, a: number, b: number, c: number) {
+  constructor(
+    public color: string,
+    private a: number,
+    private b: number,
+    private c: number,
+  ) {
     if (a <= 0 || b <= 0 || c <= 0) {
       throw new Error('Sides must be greater than 0');
     }
@@ -40,13 +37,12 @@ export class Triangle implements Figure {
 export class Circle implements Figure {
   shape = 'circle';
 
-  color: string;
-
-  private radius: number;
-
-  constructor(color: string, radius: number) {
-    if (radius < 0) {
-      throw new Error('your error message');
+  constructor(
+    public color: string,
+    private radius: number,
+  ) {
+    if (radius <= 0) {
+      throw new Error('Radius must be greater than 0');
     }
 
     this.color = color;
@@ -63,15 +59,13 @@ export class Circle implements Figure {
 export class Rectangle implements Figure {
   shape = 'rectangle';
 
-  color: string;
-
-  private height: number;
-
-  private width: number;
-
-  constructor(color: string, height: number, width: number) {
+  constructor(
+    public color: string,
+    private width: number,
+    private height: number,
+  ) {
     if (height <= 0 || width <= 0) {
-      throw new Error('your error message');
+      throw new Error('Width and height must be greater than 0');
     }
 
     this.color = color;
